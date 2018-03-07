@@ -1,0 +1,33 @@
+.nav-wrapper {
+    height: 60px;
+    background: #2ab3e2;
+
+    .nav-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        line-height: 20px;
+        display: inline-flex;
+        max-width: 100%;
+
+        a {
+            text-decoration: none;
+        }
+
+        li {
+            flex: 1;
+            padding: 20px 25px;
+            text-transform: uppercase;
+            color: white;
+            letter-spacing: 1px;
+            transition: 200ms;
+            text-align: center;
+            font-weight: 700;
+
+            &:hover {
+                color: #3C5AE6;
+                cursor: pointer;
+            }
+        }
+    }
+}

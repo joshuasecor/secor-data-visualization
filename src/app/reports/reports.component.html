@@ -1,0 +1,8 @@
+<section>
+  <div class="reports-wrapper">
+    Reports
+    <div class="track" *ngFor="let track of songs | async">
+      <pre>{{track | json }}</pre>
+    </div>
+  </div>
+</section>
