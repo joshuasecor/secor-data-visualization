@@ -1,5 +1,5 @@
 <section>
-  <div class="reports-wrapper">
+  <div class="users-wrapper">
 
     <div class="report-inner">
       <h1>
@@ -17,19 +17,18 @@
 
     <div class="report-extra">
       <hr>
-      <h4>A more useful report on Streams</h4>
+      <h4>A more useful report on Users</h4>
       <p>A method on the service...</p>
-      <pre>appService.getStreamsByCountryForAccount();</pre>
+      <pre>appService.getStreamsPerUserByCountry();</pre>
       <p>...could make a call to an API endpoint...</p>
-      <pre>https://api.umg.com/get/streamsByCountryForAccount?id=spotify</pre>
+      <pre>https://api.umg.com/get/streamsPerUserByCountry</pre>
       <p>...that queries the data as needed...</p>
       <pre style="text-align: left;">
-SELECT account, country, SUM(streams)
-FROM account_streams
-WHERE account = ‘Spotify’ 
+SELECT country, (SUM(streams) / SUM(users)) as avg_streams
+FROM user_streams
 GROUP BY country
-ORDER BY country ASC;</pre>
-      <p>...to return the total number of Spotify streams for each country.</p>
+ORDER BY avg_streams DESC;</pre>
+      <p>...to return the average streams per user for each country.</p>
     </div>
 
   </div>

@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Report } from '../../assets/mockReportOriginal';
 
 @Component({
-  selector: 'app-reports',
-  templateUrl: './reports.component.html',
-  styleUrls: ['./reports.component.scss']
+  selector: 'app-users',
+  templateUrl: './users.component.html',
+  styleUrls: ['./users.component.scss']
 })
-export class ReportsComponent implements OnInit {
+export class UsersComponent implements OnInit {
+
   report:any = Report;
   accounts = [
     {
@@ -29,7 +30,7 @@ export class ReportsComponent implements OnInit {
   type = 'column2d';
   dataFormat = 'json';
   dataSource;
-  title = "Streams";
+  title = "Users";
 
   constructor() { }
 
@@ -41,8 +42,8 @@ export class ReportsComponent implements OnInit {
   getDataSource() {
     return {
       "chart": {
-          "caption": "Worldwide Streams",
-          "subCaption": "YTD Streams by Account",
+          "caption": "Worldwide Users",
+          "subCaption": "YTD Users by Account",
           "numberprefix": "",
           "theme": ""
       },
@@ -53,11 +54,11 @@ export class ReportsComponent implements OnInit {
   getAccountStats() {
     this.report.forEach(el => {
       if (el.Account == 'Apple') {
-        this.accounts[0].value = (this.accounts[0].value + el.Streams);
+        this.accounts[0].value = (this.accounts[0].value + el.Users);
       } else if (el.Account == 'Deezer') {
-        this.accounts[1].value = (this.accounts[1].value + el.Streams);
+        this.accounts[1].value = (this.accounts[1].value + el.Users);
       } else if (el.Account == 'Spotify') {
-        this.accounts[2].value = (this.accounts[2].value + el.Streams);
+        this.accounts[2].value = (this.accounts[2].value + el.Users);
       }
     });
   }

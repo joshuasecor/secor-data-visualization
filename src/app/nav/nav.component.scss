@@ -28,6 +28,18 @@
                 color: #3C5AE6;
                 cursor: pointer;
             }
+
+            &.nav-logo {
+                padding: 8px 25px;
+
+                &:hover {
+                    cursor: auto;
+                }
+
+                img {
+                    height: 44px;
+                }
+            }
         }
     }
 }

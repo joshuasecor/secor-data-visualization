@@ -1,0 +1,51 @@
+<section>
+  <div class="reports-wrapper">
+
+    <div class="report-inner">
+      <h1>
+        {{title}}
+      </h1>
+      <div class="report-extra">
+        <p>
+          Approaching this project, I made an assumption that the best solution to query this data would be through an API. The real-world version of these reports would likely need to query very large datasets, which should be done server-side. For that reason, I created an Angular app that is set up to make calls to a theoretical API. The data would refresh when moving from tab to tab as each component is initialized.
+        </p>
+        <p>
+          I did, however, use the provided CSV to populate the data for the graphs. I converted the CSV to a JSON file, then used javascript to parse the JSON object in each tab's component, building out the specific object needed to populate that component's graph. Because the data being shown is fairly basic, I also included notes on each tab describing how I might use an API to create a more useful and sophisticated report.
+        </p>
+        <p>
+          An advantage of setting up the app this way is that data can be consumed from multiple API's. For example, if UMG has access to API's from Spotify and Apple to get data from their platforms in addition to UMG's own interal API, all of that data could be displayed in this one app. The various platform API calls could be set up in different services and used accordingly, updating front-end graphs in real time.
+        </p>
+        <p>
+          The disadvantage here is that I am relying on an API that may or may not exist. If the app needed to actually process a CSV file, I would build a feature to upload the CSV. From there, I would likely need a library like SQLite to process and query the data in the file.
+        </p>
+        <p>
+          Here are some general improvements that I would make to this app:
+        </p>
+        <ol>
+          <li>
+            Take advantage of Sass by creating a top-level .scss file with defined variables for commonly used colors, font-sizes, padding, etc, as well as add mobile-responsive styling.
+          </li>
+          <li>
+            Clean up the styling of the graphs, or choose a new library altogher. I chose to use Angular4-FusionCharts for this project because it was really simple to set up, but it doesn't render the most visually appealing graphs.
+          </li>
+          <li>
+            Add custom datasets to Firebase based on the CSV provided, then call that API as a I would an actual company's API. This would demonstrate how the app is already set up to consume external API data.
+          </li>
+          <li>
+            Create a typescript "ChartData" class and assign it to the objects being used to populate the graphs.
+          </li>
+        </ol>
+        <p>
+          As desribed above, these visual reports would already be automated in that they are available once the page loads. I would add authentication to the app so that stakeholders could log in and view up-to-date metrics at any time. I chose to use Angular because it is well-suited to quickly render a number of report components across multiple tabs as a single page app.
+        </p>
+        <p>
+          The code for this project can be viewed <a href="https://github.com/joshuasecor/secor-data-visualization" target="_blank">here</a>.
+        </p>
+        <p>
+          -Josh
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>

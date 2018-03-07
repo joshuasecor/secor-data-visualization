@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Report } from '../../assets/mockReportOriginal';
 
 @Component({
-  selector: 'app-reports',
-  templateUrl: './reports.component.html',
-  styleUrls: ['./reports.component.scss']
+  selector: 'app-revenue',
+  templateUrl: './revenue.component.html',
+  styleUrls: ['./revenue.component.scss']
 })
-export class ReportsComponent implements OnInit {
+export class RevenueComponent implements OnInit {
   report:any = Report;
   accounts = [
     {
@@ -22,16 +22,17 @@ export class ReportsComponent implements OnInit {
       value: 0
     }
   ];
-  
-  id = 'reportsChart';
+
+  id = 'revenueChart';
   width = 600;
   height = 400;
-  type = 'column2d';
+  type = 'pie3d';
   dataFormat = 'json';
   dataSource;
-  title = "Streams";
+  title = "Revenue";
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
     this.getAccountStats();
@@ -41,10 +42,10 @@ export class ReportsComponent implements OnInit {
   getDataSource() {
     return {
       "chart": {
-          "caption": "Worldwide Streams",
-          "subCaption": "YTD Streams by Account",
-          "numberprefix": "",
-          "theme": ""
+          "caption": "Worldwide Revenue",
+          "subCaption": "YTD Revenue by Account",
+          "numberprefix": "€",
+          "theme": "fint"
       },
       "data": this.accounts
     }
@@ -53,11 +54,11 @@ export class ReportsComponent implements OnInit {
   getAccountStats() {
     this.report.forEach(el => {
       if (el.Account == 'Apple') {
-        this.accounts[0].value = (this.accounts[0].value + el.Streams);
+        this.accounts[0].value = (this.accounts[0].value + el.Revenue);
       } else if (el.Account == 'Deezer') {
-        this.accounts[1].value = (this.accounts[1].value + el.Streams);
+        this.accounts[1].value = (this.accounts[1].value + el.Revenue);
       } else if (el.Account == 'Spotify') {
-        this.accounts[2].value = (this.accounts[2].value + el.Streams);
+        this.accounts[2].value = (this.accounts[2].value + el.Revenue);
       }
     });
   }

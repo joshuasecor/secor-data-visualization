@@ -1,0 +1,35 @@
+<section>
+  <div class="reports-wrapper">
+
+    <div class="report-inner">
+      <h1>
+        {{title}}
+      </h1>
+      <fusioncharts
+          [id]="id"
+          [width]="width"
+          [height]="height"
+          [type]="type"
+          [dataFormat]="dataFormat"
+          [dataSource]="dataSource"
+      ></fusioncharts>
+    </div>
+
+    <div class="report-extra">
+        <hr>
+        <h4>A more useful report on Revenue</h4>
+        <p>A method on the service...</p>
+        <pre>appService.getRevenuePerUserByConsumerGroup();</pre>
+        <p>...could make a call to an API endpoint...</p>
+        <pre>https://api.umg.com/get/revenuePerUserByConsumerGroup</pre>
+        <p>...that queries the data as needed...</p>
+        <pre style="text-align: left;">
+  SELECT consumergroup, (SUM(revenue) / SUM(users)) as avg_revenue
+  FROM user_revenue
+  GROUP BY consumergroup
+  ORDER BY avg_revenue DESC;</pre>
+        <p>...to return the average revenue per user for each consumer group (premium vs. ad-funded).</p>
+      </div>
+
+  </div>
+</section>
